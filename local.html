@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign In</title>
+    <script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  m = checkTime(m);
+  document.getElementById('time').innerHTML =
+  h + ":" + m;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};
+  return i;
+}
+function showText() {
+  var input = document.getElementById("pass").value
+  document.getElementById("text").innerHTML = input;
+  document.getElementById("text").style.color = "white";
+  return false;
+}
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body onload="startTime()">
+    <div id="signin">
+      <img src="profile.png" height="100" width="100"><br><br>
+      <div id="name">Logan Gomez<div id="arrow"></div></div><br><br>
+      <form onsubmit="return showText();">
+        <input type="password" placeholder="Password" id="pass"/>
+      </form>
+    </div>
+    <div id="text">asdf</div>
+    <div id="bottom">
+      <button class="button">⏻ Shut Down</button>
+      <button class="button">→ Sign Out</button>
+      <button class="button right"><div id="time"></div></button>
+    </div>
+  </body>
+</html>
